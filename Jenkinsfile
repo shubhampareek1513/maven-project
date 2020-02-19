@@ -9,7 +9,7 @@ agent any
    {
      steps
 	 {
-	      brach:'master', 'git: "https://github.com/shubhampareek1513/maven-project.git"'
+	     git  branch: 'master', 'url: "https://github.com/shubhampareek1513/maven-project.git"'
 	 
 	 }
    }
