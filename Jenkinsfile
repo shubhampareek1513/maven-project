@@ -14,24 +14,12 @@ pipeline
 	 
 	     }
        }
-   
- stage ('validate code')
+    stage ('validate code')
 {
  steps {
 withMaven(jdk: 'localjdk', maven: 'local-mvn') {
     'sh mvn validate'
+  }
+  }
+}}
 }
-}
-}
-
-stage ('test code')
-{
- steps {
- 
-withMaven(jdk: 'localjdk', maven: 'local-mvn') {
-    'sh mvn test'
-}
-}
-}
- }
- }
