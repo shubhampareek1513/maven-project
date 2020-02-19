@@ -1,19 +1,41 @@
-pipeine
- {
-   agent any
+pipeline {
+    agent any
+    stages {  
+        stage ('SCM Checkout-clone-my-code') {
+            steps {
+               git branch: 'ci-cd-pipeline', url: "https://github.com/shubhampareek1513/maven-project.git"
+         }
+        }
+    
+        stage ('Compile Stage') {
+            steps {
+                withMaven(jdk: 'localjdk-1.8', maven: 'localmaven') 
+                {   
+                    sh 'mvn compile' 
+                }
+               }
+              }
+                                
+            
+        
+         stage ('Testing Stage') {
+            steps {
+                withMaven(jdk: 'localjdk-1.8', maven: 'localmaven')
+                {
+                    sh 'mvn test'
+                }
+               }            
+              }
 
-   stages
-   
-   {
-      stage('scm checkout')
-       {
-         steps
-	     {
-	    
-		 git branch: 'master', url: 'https://github.com/shubhampareek1513/maven-project.git'
-	 
-	     }
-       }
-   
-   }
- }
+        
+        stage ('install Stage') {
+            steps {
+                withMaven(jdk: 'localjdk-1.8', maven: 'localmaven')
+                {
+                    sh 'mvn install'
+                }                                 
+              }
+            }
+
+    }      
+}
