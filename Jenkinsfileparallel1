@@ -26,7 +26,6 @@ withMaven(jdk: 'localjdk', maven: 'local-mvn') {
 }
 }
 }
-
 stage('compile')
 {
  steps {
