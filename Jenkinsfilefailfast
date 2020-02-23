@@ -4,40 +4,6 @@ agent any
 
 stages
 {
-stage('parallel deployment')
-{
-parallel
-{
-stage('print1')
-{
-steps{
-sh 'echo deploy to vm1'
-
-}
-
-}
-stage(print2)
-{
-steps{
-sh 'echo deploy on vm2'
-
-}
-}
-
-}
-}
-
-}
-
-}
-==========================
-
-pipeline{
-
-agent any
-
-stages
-{
  stage('scm checkout')
        {
          steps
