@@ -35,8 +35,8 @@ withMaven(jdk: 'localjdk', maven: 'local-mvn') {
 }
 }
 }
-failFast: true
 }
 }
+failFast true
 }
 }
