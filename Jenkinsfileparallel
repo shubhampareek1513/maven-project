@@ -1,0 +1,32 @@
+pipeline{
+
+agent any
+
+stages
+{
+stage('parallel deployment')
+{
+parallel
+{
+stage('print1')
+{
+steps{
+sh 'echo deploy to windows'
+
+}
+
+}
+stage(print2)
+{
+steps{
+sh 'echo deploy on linux'
+
+}
+}
+
+}
+}
+
+}
+
+}
